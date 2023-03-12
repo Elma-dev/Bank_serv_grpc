@@ -1,0 +1,18 @@
+syntax="proto3";
+service bankServices{
+  rpc convert(messageReq) returns(messageResp);
+}
+
+message messageReq{
+  string messageFrom=1;
+  string messageTo=2;
+  float amount=3;
+}
+
+message messageResp{
+  string messageFrom=1;
+  string messgaeResp=2;
+  float amount=3;
+  float result=4;
+
+}
