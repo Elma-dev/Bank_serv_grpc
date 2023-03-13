@@ -15,8 +15,8 @@ message messageReq{
 
 message messageResp{
   string messageFrom=1;
-  string messgaeResp=2;
-  float amount=3;
+  string messgaeTo=2;
+  double amount=3;
   double result=4;
 
 }

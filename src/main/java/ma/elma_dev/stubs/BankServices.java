@@ -815,22 +815,22 @@ public final class BankServices {
         getMessageFromBytes();
 
     /**
-     * <code>string messgaeResp = 2;</code>
-     * @return The messgaeResp.
+     * <code>string messgaeTo = 2;</code>
+     * @return The messgaeTo.
      */
-    java.lang.String getMessgaeResp();
+    java.lang.String getMessgaeTo();
     /**
-     * <code>string messgaeResp = 2;</code>
-     * @return The bytes for messgaeResp.
+     * <code>string messgaeTo = 2;</code>
+     * @return The bytes for messgaeTo.
      */
     com.google.protobuf.ByteString
-        getMessgaeRespBytes();
+        getMessgaeToBytes();
 
     /**
-     * <code>float amount = 3;</code>
+     * <code>double amount = 3;</code>
      * @return The amount.
      */
-    float getAmount();
+    double getAmount();
 
     /**
      * <code>double result = 4;</code>
@@ -852,7 +852,7 @@ public final class BankServices {
     }
     private messageResp() {
       messageFrom_ = "";
-      messgaeResp_ = "";
+      messgaeTo_ = "";
     }
 
     @java.lang.Override
@@ -894,12 +894,12 @@ public final class BankServices {
             case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              messgaeResp_ = s;
+              messgaeTo_ = s;
               break;
             }
-            case 29: {
+            case 25: {
 
-              amount_ = input.readFloat();
+              amount_ = input.readDouble();
               break;
             }
             case 33: {
@@ -975,36 +975,36 @@ public final class BankServices {
       }
     }
 
-    public static final int MESSGAERESP_FIELD_NUMBER = 2;
-    private volatile java.lang.Object messgaeResp_;
+    public static final int MESSGAETO_FIELD_NUMBER = 2;
+    private volatile java.lang.Object messgaeTo_;
     /**
-     * <code>string messgaeResp = 2;</code>
-     * @return The messgaeResp.
+     * <code>string messgaeTo = 2;</code>
+     * @return The messgaeTo.
      */
-    public java.lang.String getMessgaeResp() {
-      java.lang.Object ref = messgaeResp_;
+    public java.lang.String getMessgaeTo() {
+      java.lang.Object ref = messgaeTo_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        messgaeResp_ = s;
+        messgaeTo_ = s;
         return s;
       }
     }
     /**
-     * <code>string messgaeResp = 2;</code>
-     * @return The bytes for messgaeResp.
+     * <code>string messgaeTo = 2;</code>
+     * @return The bytes for messgaeTo.
      */
     public com.google.protobuf.ByteString
-        getMessgaeRespBytes() {
-      java.lang.Object ref = messgaeResp_;
+        getMessgaeToBytes() {
+      java.lang.Object ref = messgaeTo_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        messgaeResp_ = b;
+        messgaeTo_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -1012,12 +1012,12 @@ public final class BankServices {
     }
 
     public static final int AMOUNT_FIELD_NUMBER = 3;
-    private float amount_;
+    private double amount_;
     /**
-     * <code>float amount = 3;</code>
+     * <code>double amount = 3;</code>
      * @return The amount.
      */
-    public float getAmount() {
+    public double getAmount() {
       return amount_;
     }
 
@@ -1048,11 +1048,11 @@ public final class BankServices {
       if (!getMessageFromBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, messageFrom_);
       }
-      if (!getMessgaeRespBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, messgaeResp_);
+      if (!getMessgaeToBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, messgaeTo_);
       }
-      if (amount_ != 0F) {
-        output.writeFloat(3, amount_);
+      if (amount_ != 0D) {
+        output.writeDouble(3, amount_);
       }
       if (result_ != 0D) {
         output.writeDouble(4, result_);
@@ -1069,12 +1069,12 @@ public final class BankServices {
       if (!getMessageFromBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, messageFrom_);
       }
-      if (!getMessgaeRespBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, messgaeResp_);
+      if (!getMessgaeToBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, messgaeTo_);
       }
-      if (amount_ != 0F) {
+      if (amount_ != 0D) {
         size += com.google.protobuf.CodedOutputStream
-          .computeFloatSize(3, amount_);
+          .computeDoubleSize(3, amount_);
       }
       if (result_ != 0D) {
         size += com.google.protobuf.CodedOutputStream
@@ -1097,10 +1097,10 @@ public final class BankServices {
 
       if (!getMessageFrom()
           .equals(other.getMessageFrom())) return false;
-      if (!getMessgaeResp()
-          .equals(other.getMessgaeResp())) return false;
-      if (java.lang.Float.floatToIntBits(getAmount())
-          != java.lang.Float.floatToIntBits(
+      if (!getMessgaeTo()
+          .equals(other.getMessgaeTo())) return false;
+      if (java.lang.Double.doubleToLongBits(getAmount())
+          != java.lang.Double.doubleToLongBits(
               other.getAmount())) return false;
       if (java.lang.Double.doubleToLongBits(getResult())
           != java.lang.Double.doubleToLongBits(
@@ -1118,11 +1118,11 @@ public final class BankServices {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + MESSAGEFROM_FIELD_NUMBER;
       hash = (53 * hash) + getMessageFrom().hashCode();
-      hash = (37 * hash) + MESSGAERESP_FIELD_NUMBER;
-      hash = (53 * hash) + getMessgaeResp().hashCode();
+      hash = (37 * hash) + MESSGAETO_FIELD_NUMBER;
+      hash = (53 * hash) + getMessgaeTo().hashCode();
       hash = (37 * hash) + AMOUNT_FIELD_NUMBER;
-      hash = (53 * hash) + java.lang.Float.floatToIntBits(
-          getAmount());
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getAmount()));
       hash = (37 * hash) + RESULT_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           java.lang.Double.doubleToLongBits(getResult()));
@@ -1261,9 +1261,9 @@ public final class BankServices {
         super.clear();
         messageFrom_ = "";
 
-        messgaeResp_ = "";
+        messgaeTo_ = "";
 
-        amount_ = 0F;
+        amount_ = 0D;
 
         result_ = 0D;
 
@@ -1294,7 +1294,7 @@ public final class BankServices {
       public ma.elma_dev.stubs.BankServices.messageResp buildPartial() {
         ma.elma_dev.stubs.BankServices.messageResp result = new ma.elma_dev.stubs.BankServices.messageResp(this);
         result.messageFrom_ = messageFrom_;
-        result.messgaeResp_ = messgaeResp_;
+        result.messgaeTo_ = messgaeTo_;
         result.amount_ = amount_;
         result.result_ = result_;
         onBuilt();
@@ -1349,11 +1349,11 @@ public final class BankServices {
           messageFrom_ = other.messageFrom_;
           onChanged();
         }
-        if (!other.getMessgaeResp().isEmpty()) {
-          messgaeResp_ = other.messgaeResp_;
+        if (!other.getMessgaeTo().isEmpty()) {
+          messgaeTo_ = other.messgaeTo_;
           onChanged();
         }
-        if (other.getAmount() != 0F) {
+        if (other.getAmount() != 0D) {
           setAmount(other.getAmount());
         }
         if (other.getResult() != 0D) {
@@ -1464,108 +1464,108 @@ public final class BankServices {
         return this;
       }
 
-      private java.lang.Object messgaeResp_ = "";
+      private java.lang.Object messgaeTo_ = "";
       /**
-       * <code>string messgaeResp = 2;</code>
-       * @return The messgaeResp.
+       * <code>string messgaeTo = 2;</code>
+       * @return The messgaeTo.
        */
-      public java.lang.String getMessgaeResp() {
-        java.lang.Object ref = messgaeResp_;
+      public java.lang.String getMessgaeTo() {
+        java.lang.Object ref = messgaeTo_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          messgaeResp_ = s;
+          messgaeTo_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string messgaeResp = 2;</code>
-       * @return The bytes for messgaeResp.
+       * <code>string messgaeTo = 2;</code>
+       * @return The bytes for messgaeTo.
        */
       public com.google.protobuf.ByteString
-          getMessgaeRespBytes() {
-        java.lang.Object ref = messgaeResp_;
+          getMessgaeToBytes() {
+        java.lang.Object ref = messgaeTo_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          messgaeResp_ = b;
+          messgaeTo_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string messgaeResp = 2;</code>
-       * @param value The messgaeResp to set.
+       * <code>string messgaeTo = 2;</code>
+       * @param value The messgaeTo to set.
        * @return This builder for chaining.
        */
-      public Builder setMessgaeResp(
+      public Builder setMessgaeTo(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        messgaeResp_ = value;
+        messgaeTo_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string messgaeResp = 2;</code>
+       * <code>string messgaeTo = 2;</code>
        * @return This builder for chaining.
        */
-      public Builder clearMessgaeResp() {
+      public Builder clearMessgaeTo() {
         
-        messgaeResp_ = getDefaultInstance().getMessgaeResp();
+        messgaeTo_ = getDefaultInstance().getMessgaeTo();
         onChanged();
         return this;
       }
       /**
-       * <code>string messgaeResp = 2;</code>
-       * @param value The bytes for messgaeResp to set.
+       * <code>string messgaeTo = 2;</code>
+       * @param value The bytes for messgaeTo to set.
        * @return This builder for chaining.
        */
-      public Builder setMessgaeRespBytes(
+      public Builder setMessgaeToBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        messgaeResp_ = value;
+        messgaeTo_ = value;
         onChanged();
         return this;
       }
 
-      private float amount_ ;
+      private double amount_ ;
       /**
-       * <code>float amount = 3;</code>
+       * <code>double amount = 3;</code>
        * @return The amount.
        */
-      public float getAmount() {
+      public double getAmount() {
         return amount_;
       }
       /**
-       * <code>float amount = 3;</code>
+       * <code>double amount = 3;</code>
        * @param value The amount to set.
        * @return This builder for chaining.
        */
-      public Builder setAmount(float value) {
+      public Builder setAmount(double value) {
         
         amount_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>float amount = 3;</code>
+       * <code>double amount = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearAmount() {
         
-        amount_ = 0F;
+        amount_ = 0D;
         onChanged();
         return this;
       }
@@ -1673,15 +1673,15 @@ public final class BankServices {
     java.lang.String[] descriptorData = {
       "\n\022bankServices.proto\"D\n\nmessageReq\022\023\n\013me" +
       "ssageFrom\030\001 \001(\t\022\021\n\tmessageTo\030\002 \001(\t\022\016\n\006am" +
-      "ount\030\003 \001(\001\"W\n\013messageResp\022\023\n\013messageFrom" +
-      "\030\001 \001(\t\022\023\n\013messgaeResp\030\002 \001(\t\022\016\n\006amount\030\003 " +
-      "\001(\002\022\016\n\006result\030\004 \001(\0012\320\001\n\014bankServices\022$\n\007" +
-      "convert\022\013.messageReq\032\014.messageResp\0220\n\021ge" +
-      "tCurrencyStream\022\013.messageReq\032\014.messageRe" +
-      "sp0\001\0223\n\024perfomCurrencyStream\022\013.messageRe" +
-      "q\032\014.messageResp(\001\0223\n\022fullCurrencyStream\022" +
-      "\013.messageReq\032\014.messageResp(\0010\001B\023\n\021ma.elm" +
-      "a_dev.stubsb\006proto3"
+      "ount\030\003 \001(\001\"U\n\013messageResp\022\023\n\013messageFrom" +
+      "\030\001 \001(\t\022\021\n\tmessgaeTo\030\002 \001(\t\022\016\n\006amount\030\003 \001(" +
+      "\001\022\016\n\006result\030\004 \001(\0012\320\001\n\014bankServices\022$\n\007co" +
+      "nvert\022\013.messageReq\032\014.messageResp\0220\n\021getC" +
+      "urrencyStream\022\013.messageReq\032\014.messageResp" +
+      "0\001\0223\n\024perfomCurrencyStream\022\013.messageReq\032" +
+      "\014.messageResp(\001\0223\n\022fullCurrencyStream\022\013." +
+      "messageReq\032\014.messageResp(\0010\001B\023\n\021ma.elma_" +
+      "dev.stubsb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1698,7 +1698,7 @@ public final class BankServices {
     internal_static_messageResp_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_messageResp_descriptor,
-        new java.lang.String[] { "MessageFrom", "MessgaeResp", "Amount", "Result", });
+        new java.lang.String[] { "MessageFrom", "MessgaeTo", "Amount", "Result", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -17,3 +17,4 @@ ma\elma_dev\stubs\BankServices.class
 ma\elma_dev\Main.class
 ma\elma_dev\stubs\BankServices$messageReq.class
 ma\elma_dev\stubs\BankServices$messageResp.class
+ma\elma_dev\services\BankSercvices.class
