@@ -70,4 +70,25 @@ public class BankSercvices extends bankServicesGrpc.bankServicesImplBase {
             }
         };
     }
+
+    @Override
+    public StreamObserver<BankServices.messageReq> fullCurrencyStream(StreamObserver<BankServices.messageResp> responseObserver) {
+        return  new StreamObserver<BankServices.messageReq>() {
+            @Override
+            public void onNext(BankServices.messageReq messageReq) {
+                BankServices.messageResp resp = BankServices.messageResp.newBuilder().setResult(messageReq.getAmount() * 11.30).build();
+                responseObserver.onNext(resp);
+            }
+
+            @Override
+            public void onError(Throwable throwable) {
+
+            }
+
+            @Override
+            public void onCompleted() {
+                responseObserver.onCompleted();
+            }
+        };
+    }
 }
