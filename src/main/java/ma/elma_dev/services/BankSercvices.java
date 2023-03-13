@@ -14,5 +14,12 @@ public class BankSercvices extends bankServicesGrpc.bankServicesImplBase {
         BankServices.messageResp response= BankServices.messageResp.newBuilder().
                 setMessageFrom(messageFrom).setMessgaeTo(messageTo).setAmount(amount).setResult(amount*11.30)
         .build();
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void getCurrencyStream(BankServices.messageReq request, StreamObserver<BankServices.messageResp> responseObserver) {
+
     }
 }
