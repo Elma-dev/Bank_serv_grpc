@@ -52,7 +52,9 @@ public class BankSercvices extends bankServicesGrpc.bankServicesImplBase {
             double sum=0;
             @Override
             public void onNext(BankServices.messageReq messageReq) {
+                System.out.println(messageReq.getAmount());
                 sum+=messageReq.getAmount();
+
             }
 
             @Override
@@ -76,6 +78,7 @@ public class BankSercvices extends bankServicesGrpc.bankServicesImplBase {
         return  new StreamObserver<BankServices.messageReq>() {
             @Override
             public void onNext(BankServices.messageReq messageReq) {
+                System.out.println(messageReq.toString());
                 BankServices.messageResp resp = BankServices.messageResp.newBuilder().setResult(messageReq.getAmount() * 11.30).build();
                 responseObserver.onNext(resp);
             }
